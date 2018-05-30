@@ -26,7 +26,7 @@ app.post('/', function(req, res){
     res.end();
 });
 
-app.get('/Ouvir', function(req, res){
+app.get('/', function(req, res){
     res.sendFile(__dirname + '/Conta/index.html');
 });
 
