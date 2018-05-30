@@ -8,10 +8,9 @@
 <body>
     <div id="app">
         <h1>Sistema de Controlo de Post</hi>
-        <pre>{{body}}</pre>
+            <pre>{{body}}</pre>
     </div>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="/Assets/plugins/jquery/jquery.js" type="text/javascript"></script>
     <script src="/Assets/js/vue.js" type="text/javascript"></script>
 
     <script>
@@ -37,11 +36,7 @@
     </script>
 
     <script>
-        $(function () {
-            socket.on('post', (data) => {
-                app.cargar(data);
-            });
-        })
+        (function () {socket.on('post', (data) => {app.cargar(data);})}());
     </script>
 </body>
 
