@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>ECO</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>Sistema de Controlo de Post</hi>
+        <pre>{{body}}</pre>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/Assets/plugins/jquery/jquery.js" type="text/javascript"></script>
+    <script src="/Assets/js/vue.js" type="text/javascript"></script>
+
+    <script>
+        var socket = io();
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                header: '',
+                body: ''
+            },
+            methods: {
+                cargar: function (b) {
+                    var self = this;
+
+                    self.body = b;
+                }
+            },
+            filters: {
+
+            }
+        });
+    </script>
+
+    <script>
+        $(function () {
+            socket.on('post', (data) => {
+                app.cargar(data);
+            });
+        })
+    </script>
+</body>
+
+</html>
