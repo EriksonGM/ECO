@@ -23,7 +23,7 @@ app.post('/', function(req, res){
         header : req.headers,
         corpo : req.body
     });
-    res.end();
+    res.status(200);
 });
 
 app.get('/', function(req, res){
